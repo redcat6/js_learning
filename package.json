@@ -4,7 +4,9 @@
   "description": "javascript excel application",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/redcat6/js_learning/issues"
   },
-  "homepage": "https://github.com/redcat6/js_learning#readme"
+  "homepage": "https://github.com/redcat6/js_learning#readme",
+  "private": true,
+  "devDependencies": {
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
 }
