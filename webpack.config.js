@@ -9,14 +9,14 @@ module.exports = {
    mode: 'development',
    entry: './index.js',
    output: {
-      filename: "bundle.[chunkhash].js",
-      path: path.resolve(__dirname, "dist")
+      filename: 'bundle.[chunkhash].js',
+      path: path.resolve(__dirname, 'dist')
    },
    resolve: {
      extensions: ['.js'],
      alias: {
-       '@': path.resolve(__dirname, "src"),
-       '@core': path.resolve(__dirname, "src/core")
+       '@': path.resolve(__dirname, 'src'),
+       '@core': path.resolve(__dirname, 'src/core')
      }
    },
    plugins: [
@@ -33,7 +33,7 @@ module.exports = {
             ],
           }),
         new MiniCssExtractPlugin({
-          filename: "bundle.[chunkhash].css"
+          filename: 'bundle.[chunkhash].css'
         }) 
    ],
    module: {
@@ -42,10 +42,20 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader",
+          'css-loader',
+          'sass-loader',
         ],
       },
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
     ],
   },
 }
