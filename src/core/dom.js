@@ -17,6 +17,14 @@ class Dom {
         return this
     }
 
+    on (eventType, callback) {
+        this.$el.addEventListener(eventType, callback)
+    }
+
+    remove (eventType, methodName) {
+        this.$el.removeEventListener(eventType, methodName)
+    }
+
     append (node) {
         if (node instanceof Dom) {
             node = node.$el
